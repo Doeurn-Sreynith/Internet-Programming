@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex4</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        max-width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: c;
+    }
+    #Container {
+        background-color: rgb(154, 214, 241);
+        width: 100%;
+        height: fit-content;
+        border: 5px solid black;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        /* height: 100vh; */
+    }
+    img{
+        width: 18%;
+        margin: 20px;
+    }
+    #University{
+        font-family: 'Julee', cursive;
+        /* font-family: 'Itim', cursive;
+        font-family: 'Shantell Sans', cursive; */
+    }
+    h3{
+        font-size: 27px;
+    }
+    #menu{
+        width: 50%;
+        border: 1px solid black;
+        border-radius: 4px;
+        margin: 10px;
+    }
+    .form-select{
+        font-family: 'Itim', cursive;
+        font-family: 'Shantell Sans', cursive;
+        font-size: 1.1rem;
+        /* font-weight: bold; */
+        padding: 2px;
+    }
+    #box-display{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        margin: auto;
+        /* padding: 10px; */
+        border-radius: 4px;
+        font-size: 10px;
+        margin: 20px;
+        gap: 10px;
+        overflow-y: hidden;
+        padding: 10px;
+    }
+    #box-display > * {
+        background-color: #f4f4f4;
+        border-radius: 4px;
+    
+    }
+    .name-school{
+        font-size: 12px;
+        padding: 4px;
+    }
+   /* #univ1 div{
+        margin-bottom: 10px;
+    } */
+
+    /* #box-display+#box-display{
+        margin-top: .4rem;
+    } */
+    
+</style>
+<body>
+    <div id="Container">
+        <div id="sticker">
+            <img src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/48174/school-emoji-clipart-md.png" alt="">
+        </div>
+        <div id="University">
+            <h3>Which Univ. do you want to study?</h3>
+        </div>
+        <div id="menu">
+            <select class="form-select" aria-label=" " onchange="getMaAnActivity()">
+                <!-- <option selected>Select Menu</option> -->
+                <option selected value="cambodia">Cambodia</option>
+                <option  value="thailand">Thailand</option>
+                <option value="usa">USA</option>
+                <option value="vietnam">Vietnam</option>
+                <option value="laos">laos</option>
+                <option value="japan">Japan</option>
+            </select>
+        </div>
+        <div id="box-display">
+            <!-- <div id="univ1">
+                <h4 class="name-school">Asia Europe University</h4>
+                <small>(Cambodia - KH)</small>
+                <a href="http://www.aeu.edu.kh/">http://www.aeu.edu.kh/</a>
+            </div>
+            <div id="univ2">
+                <h4 class="name-school">Asia Europe University</h4>
+                <small>(Cambodia - KH)</small>
+                <a href="http://www.aeu.edu.kh/">http://www.aeu.edu.kh/</a>
+            </div>
+            <div id="univ3"> -->
+                <!-- <h4 class="name-school">Asia Europe University</h4>
+                <small>(Cambodia - KH)</small>
+                <a href="http://www.aeu.edu.kh/">http://www.aeu.edu.kh/</a>
+            </div> -->
+        </div>
+    </div>
+    <script>
+        const input = document.querySelector('.form-select');
+        function getMaAnActivity(){
+            let tmp=""
+            document.querySelector("#box-display").innerHTML=`<div class="lds-heart"><div></div></div>`
+            fetch (`http://universities.hipolabs.com/search?country=${input.value}`).then(async (res)=>{
+                let data = await res.json();
+                // console.log(data);
+                data.forEach(item => {
+                    // console.log(item);
+                    tmp +=
+                    `  
+                    <div id="univ1">
+                        <h4 class="name-school">${item.name}</h4>
+                        <p>${item.country}  -  ${item.alpha_two_code}</p>
+                        <a href="${item.web_pages}" target="_blank">${item.web_pages}</a>
+                    </div>
+                   
+                    `
+                });
+                
+                document.querySelector("#box-display").innerHTML = tmp;
+            });
+        }
+        getMaAnActivity();
+    </script>
+</body>
+</html>

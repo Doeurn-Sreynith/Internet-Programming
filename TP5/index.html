@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getMaAnActivity()">Get me an activity</button>
+    <div id="loading-text" hidden>Loading...</div>
+    <div id="activity-name">Activity</div>
+    <div id="activity-type"></div>
+    <script>
+        const loadingTextEle = document.getElementById("loading-text");
+        const activityNameEle = document.getElementById("activity-name");
+        const activityTypeEle = document.getElementById("activity-type");
+        activityNameEle.innerHTML = "";
+
+        function getMaAnActivity(){
+            loadingTextEle.hidden = false;
+            activityNameEle.innerHTML = "";
+            activityTypeEle.innerHTML='';
+            fetch("https://www.boredapi.com/api/activity").then(async (res)=>{
+                let data = await res.json();
+                loadingTextEle.hidden = true;
+                activityNameEle.innerHTML = data["activity"];
+                activityTypeEle.innerHTML = data['type'];
+                console.log(data);
+        });
+    }
+       
+    </script>
+</body>
+</html>

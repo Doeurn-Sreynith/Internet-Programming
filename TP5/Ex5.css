@@ -1,0 +1,51 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    border: 4px;
+    /* height: fit-content; */
+    /* gap: 10px; */
+}
+.container .input{
+    width: 30%;
+    height: 100%;
+    background-color: #ebebeb;
+}
+.container .output{
+    width: 70%;
+    background-color: #ebebeb;;
+    display: grid;
+    padding: 1rem .7rem;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;;
+    overflow-y: scroll;
+}
+.container .output .box{
+    
+    width: 100%;
+    height: 100%;
+    /* height: 100%; */
+    background-color:  #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: .4rem;
+}
+.container .output .box > div{
+    width: 100%;
+}
+.container .output .box > div >img{
+    width: 100%;
+}
+.container .output .box div:first-child{
+    min-height: 8rem;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
