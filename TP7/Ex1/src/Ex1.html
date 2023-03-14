@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    #Container {
+        width: 100%;
+        min-height: 100vh;
+        background-color: rgb(196, 255, 204);
+        display: flex;
+        align-items: center;
+    }
+
+    #box {
+        width: 80%;
+        height: fit-content;
+        background-color: #ffffff;
+        border: 6px solid black;
+        justify-content: center;
+        text-align: center;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #box sticker {
+        margin-top: 50px;
+    }
+
+    #sticker {
+        font-size: 80px;
+    }
+
+    #text {
+        font-family: 'Shantell Sans', cursive;
+        font-size: 20px;
+        text-indent: 6px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    #button {
+        background-color: #3083ff;
+        border: none;
+        border-radius: 4px;
+        font-size: 18px;
+        font-family: 'Shantell Sans', cursive;
+        margin: 20px;
+        padding: 10px;
+        color: white;
+
+    }
+
+    #option {
+
+        background-color: #f4f4f4;
+        width: 80%;
+        /* height: fit-content; */
+        margin-bottom: 30px;
+        border-radius: 6px;
+
+    }
+
+    #tag {
+        /* text-indent: 20px; */
+        height: 20px;
+    }
+
+    #part {
+        height: 20px;
+    }
+
+    #price {
+        height: 20px;
+    }
+
+    #link {
+        height: 20px;
+    }
+
+    #icon1 {
+        width: 300px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #icon2 {
+        width: 300px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #icon3 {
+        width: 300px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #icon4 {
+        width: 300px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #option-header {
+        font-family: 'Shantell Sans', cursive;
+    }
+
+    .lds-ripple {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+    }
+
+    .lds-ripple div {
+        position: absolute;
+        border: 4px solid black;
+        opacity: 1;
+        border-radius: 50%;
+        animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    }
+
+    .lds-ripple div:nth-child(2) {
+        animation-delay: -0.5s;
+    }
+
+    @keyframes lds-ripple {
+        0% {
+            top: 36px;
+            left: 36px;
+            width: 0;
+            height: 0;
+            opacity: 0;
+        }
+
+        4.9% {
+            top: 36px;
+            left: 36px;
+            width: 0;
+            height: 0;
+            opacity: 0;
+        }
+
+        5% {
+            top: 36px;
+            left: 36px;
+            width: 0;
+            height: 0;
+            opacity: 1;
+        }
+
+        100% {
+            top: 0px;
+            left: 0px;
+            width: 72px;
+            height: 72px;
+            opacity: 0;
+        }
+    }
+
+    .activity {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <div id="Container">
+        <div id="box">
+            <div id="sticker">
+                😒
+            </div>
+            <div id="text">
+                <h2>Are you boring?</h2>
+            </div>
+            <button id="button" onclick="getMaAnActivity()">Tell me what to do</button>
+            <div class="activity">
+                <div id="loading" hidden>
+                    <div class="lds-ripple" >
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div id="option" hidden>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        const loadingTextEle = document.getElementById("loading");
+        const optionEle = document.getElementById("option");
+        const activityNameEle = document.getElementById("activity-name");
+        const activityTypeEle = document.getElementById("activity-type");
+
+        function getMaAnActivity() {
+            loadingTextEle.hidden = false;
+            optionEle.hidden = true;
+            fetch("https://www.boredapi.com/api/activity").then(async (res) => {
+                // alert("hi")
+                let data = await res.json();
+                
+
+                const tmo =
+                    `
+                <h3 id="option-header">Learn and play a new card game</h3>
+                <div id="text">
+                    <div id="icon1">
+                        <svg id="tag" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                        fill="currentColor" class="w-6 h-fit">
+                            <path fill-rule="evenodd" d="M5.25 2.25a3 3 0 00-3 3v4.318a3 3
+                             0 00.879 2.121l9.58 9.581c.92.92 2.39 1.186 3.548.428a18.849 18.849 0
+                              005.441-5.44c.758-1.16.492-2.629-.428-3.548l-9.58-9.581a3 3 0 00-2.122-.879H5.25zM6.375 
+                              7.5a1.125 1.125 0 100-2.25 1.125 1.125 0 000 2.25z" clip-rule="evenodd" />
+                        </svg>                      
+                        <p>Type: ${data.type} </p>
+                    </div>
+                    <div id="icon2">
+                        <svg id="part" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path fill-rule="evenodd" d="M8.25 6.75a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0zM15.75
+                            9.75a3 3 0 116 0 3 3 0 01-6 0zM2.25 9.75a3 3 0 116 0 3 3 0 01-6 0zM6.31 15.117A6.745
+                            6.745 0 0112 12a6.745 6.745 0 016.709 7.498.75.75 0 01-.372.568A12.696 12.696 0 0112 
+                            21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 01-.372-.568 6.787 6.787 0 011.019-4.38z" clip-rule="evenodd" />
+                            <path d="M5.082 14.254a8.287 8.287 0 00-1.308 5.135 9.687 9.687 0 01-1.764-.44l-.115-.04a.563.563
+                            0 01-.373-.487l-.01-.121a3.75 3.75 0 013.57-4.047zM20.226 19.389a8.287 8.287 0 00-1.308-5.135 3.75 
+                            3.75 0 013.57 4.047l-.01.121a.563.563 0 01-.373.486l-.115.04c-.567.2-1.156.349-1.764.441z" />
+                        </svg>
+                        <p>Participants: ${data.participants}</p>                      
+                    </div>
+                    <div id="icon3">
+                        <svg id="price" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path d="M10.464 8.746c.227-.18.497-.311.786-.394v2.795a2.252 2.252 0 
+                            01-.786-.393c-.394-.313-.546-.681-.546-1.004 0-.323.152-.691.546-1.004zM12.75 
+                            15.662v-2.824c.347.085.664.228.921.421.427.32.579.686.579.991 0 .305-.152.671-.579.991a2.534 2.534 0 01-.921.42z" />
+                            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365
+                            9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75
+                            0 00-1.5 0v.816a3.836 3.836 0 00-1.72.756c-.712.566-1.112 1.35-1.112 2.178 0 
+                            .829.4 1.612 1.113 2.178.502.4 1.102.647 1.719.756v2.978a2.536 2.536 0
+                            01-.921-.421l-.879-.66a.75.75 0 00-.9 1.2l.879.66c.533.4 1.169.645 1.821.75V18a.75.75
+                            0 001.5 0v-.81a4.124 4.124 0 001.821-.749c.745-.559 1.179-1.344 1.179-2.191
+                            0-.847-.434-1.632-1.179-2.191a4.122 4.122 0 00-1.821-.75V8.354c.29.082.559.213.786.393l.415.33a.75.75
+                            0 00.933-1.175l-.415-.33a3.836 3.836 0 00-1.719-.755V6z" clip-rule="evenodd" />
+                        </svg>
+                        <p>Price: ${data.price}</p>
+                    </div>
+                    <div id="icon4">
+                        <svg id="link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path fill-rule="evenodd" d="M19.902 4.098a3.75 3.75 0 00-5.304 0l-4.5 4.5a3.75 3.75
+                            0 001.035 6.037.75.75 0 01-.646 1.353 5.25 5.25 0 01-1.449-8.45l4.5-4.5a5.25 5.25 
+                            0 117.424 7.424l-1.757 1.757a.75.75 0 11-1.06-1.06l1.757-1.757a3.75 3.75 
+                            0 000-5.304zm-7.389 4.267a.75.75 0 011-.353 5.25 5.25 0 011.449 8.45l-4.5 4.5a5.25 5.25 
+                            0 11-7.424-7.424l1.757-1.757a.75.75 0 111.06 1.06l-1.757 1.757a3.75 3.75 
+                            0 105.304 5.304l4.5-4.5a3.75 3.75 0 00-1.035-6.037.75.75 0 01-.354-1z" clip-rule="evenodd" />
+                        </svg>                      
+                        <p>link: ${data.link}</p>
+                    </div>
+                </div>
+        
+                `
+                // console.log(tmo);
+            optionEle.innerHTML = tmo
+            optionEle.hidden = false;
+            loadingTextEle.hidden = true;
+
+            });
+            
+        }
+
+
+        window.addEventListener("load", getMaAnActivity)  
+    </script>
+</body>
+
+</html>
