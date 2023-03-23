@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex11</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #container{
+            width: 40%;
+            aspect-ratio: 2.2/1;
+            border: .2vw solid black;
+            padding: 1.4vw .6vw ;
+            display: flex;
+            flex-direction: column;
+            align-items:center;
+            justify-content: flex-start;
+            border-radius: .2vw;
+            gap: 1vw;
+        }
+        .header{
+            width: 100%;
+            font-size: 2vw;
+            background-color: #db8181;
+            padding: 2vw 0;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            border-radius: .1vw;
+        }
+        .box-wrapper{
+            width: 99%;
+            /* height: 100%; */
+            /* outline: 2px solid black ; */
+            padding: 1vw 0 ;
+            padding-bottom: .7vw;
+            display: grid;
+            overflow-x: scroll;
+            gap: 1vw;
+            grid-template-rows: 1fr 1fr;
+            grid-auto-flow: column;
+            /* overflow-x:scroll ; */
+        }
+        .box-wrapper::-webkit-scrollbar{
+            background: #f0f0f0;
+            width: .2vw;
+        }
+        
+        .box-wrapper::-webkit-scrollbar-thumb {
+            background: #696969; 
+            border-radius: 999px;
+        }
+        .box{
+            width: 8vw;
+            aspect-ratio: 1/1;
+            background-color: #84cb79;
+            border-radius: .1vw;
+          
+        }
+    </style>
+    <div id="container">
+        <div class="header">Scroll Virtically</div>
+        <div class="box-wrapper">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <!-- <div class=""></div> -->
+    </div>
+</body>
+</html>

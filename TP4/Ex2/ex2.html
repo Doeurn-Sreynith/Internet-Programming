@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex2</title>
+    <script src=" https://cdn.tailwindcss.com  "></script>
+    <style>
+       @media only screen and (max-width: 600px){
+        .product{
+            flex-direction: column;
+            
+        }
+        
+       }
+       @media only screen and (min-width: 1000px){
+        #wrapper{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            
+        }
+       }
+    </style>
+</head>
+<body class="w-full flex justify-center ">
+    <div class="w-[80%] bg-[#f1f5f8] border-4 border-black p-6">
+        <div class="flex justify-center text-[200%] text-[#1c2b3a]"><strong>Our Menu</strong></div>
+        <div class="flex justify-center">
+            <div class="  bg-[#cb9a60] w-[15%] h-[2px]"></div>
+        </div>
+        <div class="flex justify-center gap-[3%] py-4">
+            <button class="bg-[#ffffff] px-2 rounded-md border-[2px] border-[#cb9a60] text-[#cb9a60]" type="button">All</button>
+            <button class="bg-[#ffffff] px-2 rounded-md border-[2px] border-[#cb9a60] text-[#cb9a60]" type="button">Breakfast</button>
+            <button class="bg-[#ffffff] px-2 rounded-md border-[2px] border-[#cb9a60] text-[#cb9a60]" type="button">Lunch</button>
+            <button class="bg-[#ffffff] px-2 rounded-md border-[2px] border-[#cb9a60] text-[#cb9a60]" type="button">Shakes</button>
+            <button class="bg-[#ffffff] px-2 rounded-md border-[2px] border-[#cb9a60] text-[#cb9a60]" type="button">Dinner</button>
+        </div>
+        <div id="wrapper" class="w-[100%] min-h-[70vh] flex flex-wrap gap-3">
+            <div class="product w-[100%]  flex">
+                <div class="w-[100%] h-[100%] border-2 border-[#cb9a60] rounded-md mr-4"> 
+                    <img  class="rounded w-full h-full object-cover" src="https://shared.publicmediaconnect.org/images/food/recipes_main.jpg" alt="">
+                </div>
+                <div class="w-[100%] h-[100%]">
+                    <div class=" w-full flex justify-between text-[#1c2b3a]">
+                        <div><strong>Buttermilk Pancakes</strong></div>
+                        <div class="text-[#cb9a60]"><strong>$15.99</strong></div>
+                    </div>
+                    <div class="w-full bg-[#1c2b3a] h-[1px]"></div>
+                    <div class="text-[#1c2b3a]">
+                        <small>I'm baby woke mlkshk wolf bitters live-edge blue
+                            bottle, hammock freegan copper mug whatever
+                            cold-pressed</small>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="product w-[100%] flex">
+                <div class="w-[100%] h-[100%] border-2 border-[#cb9a60] rounded-md mr-4"> 
+                    <img  class="rounded w-full h-full object-cover" src="https://media-cdn.tripadvisor.com/media/photo-s/0f/19/64/80/hamburger-toscano.jpg" alt="">
+                </div>
+                <div class="w-[100%] h-[100%]">
+                    <div class=" w-full flex justify-between text-[#1c2b3a]">
+                        <div><strong>Diner Double</strong></div>
+                        <div class="text-[#cb9a60]"><strong>$13.99</strong></div>
+                    </div>
+                    <div class="w-full bg-[#1c2b3a] h-[1px]"></div>
+                    <div class="text-[#1c2b3a]">
+                        <small>vaporware !Phone mumblecore selvage raw denim
+                            slow-carb leggings gochujang helvetica man braid
+                            Jianbing. Marfa thundercats</small>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="product w-[100%] flex">
+                <div class="w-[100%] h-[80%] border-2 border-[#cb9a60] rounded-md mr-4"> 
+                    <img  class="rounded w-full h-full object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRscoZBW_nGQ3-dQ1HYlJo-fzn0rT1tmyja-pimD8IT72p5quUW" alt="">
+                </div>
+                <div class="w-[100%] h-[100%]">
+                    <div class=" w-full flex justify-between text-[#1c2b3a]">
+                        <div><strong>Godzilla Milkshake</strong></div>
+                        <div class="text-[#cb9a60]"><strong>$6.99</strong></div>
+                    </div>
+                    <div class="w-full bg-[#1c2b3a] h-[1px]"></div>
+                    <div class="text-[#1c2b3a]">
+                        <small>ombucha chillwave fanny pack 3 wolf moon street
+                            art photo booth before they sold out organic viral.</small>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

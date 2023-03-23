@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex8</title>
+</head>
+<body>
+    <style>
+         *{
+            margin: 0;
+            padding: 0;
+            /* box-sizing: border-box; */
+        }
+        .wrapper{
+            background-color: #d3d3d3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            transform: translate(50%,-50%);
+            gap: 3rem;
+            
+        }
+        .drop{
+            font-size: 60px;
+            transform: translateY(-100vh);
+            animation: drop_anime 600ms linear forwards calc(var(--order)*300ms);
+
+
+        }
+        @keyframes drop_anime {
+            from{
+                visibility: hidden;
+                transform: translateY(-100vh);
+                
+            }
+            to{
+                visibility: visible;
+                transform: translateY(0%);
+            }
+        }
+    </style>
+    <div class="wrapper">
+        <span class="drop" style="--order: 1">🥳</span>
+        <span class="drop" style="--order: 2">😜</span>
+        <span class="drop" style="--order: 3">🤩</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex12</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #container{
+            width: 50%;
+            aspect-ratio: 2/1;
+            border: .3vw solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .sub-container{
+            width: 90%;
+            aspect-ratio: 2/1;
+            /* border: .3vw solid black; */
+            display: flex;
+            justify-content: space-between;
+            /* justify-content: ; */
+            gap: 3vw;
+            align-items: center;
+        }
+        .sub-container>div{
+            width: 100%;
+            height: 100%;
+
+            /* background-color: black; */
+        }
+        .Letter_I{
+            background-color: #db8181;
+        }
+
+        .Letter_T{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .Letter_T > div{
+            /* height: 25%; */
+            background-color: #84cb79;
+        }
+        .Letter_T_Head{
+            width: 100%;
+            height: 20%;
+        }
+        .Letter_T_Leg{
+            width: 25%;
+            /* flex: ; */
+            height: 87%;
+        }
+
+        .Letter_C{
+            height: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .Letter_C>div{
+            width: 100%;
+            background-color: #fdc841;
+        }
+
+        .Letter_c_Head, .Letter_c_Bottum{
+            width: 100% !important;
+            height: 25%;
+        }
+        .Letter_c_Body{
+            width:35% !important;
+            height: 100%;
+        }
+
+        .Letter_I{
+            flex: .5;
+        }
+        .Letter_T{
+            flex: 2;
+        }
+        .Letter_C{
+            flex: 1;
+        }
+
+    </style>
+    <div id="container">
+        <div class="sub-container">
+            <div class="Letter_I"></div>
+            <div class="Letter_T">
+                <div class="Letter_T_Head"></div>
+                <div class="Letter_T_Leg"></div>
+            </div>
+            <div class="Letter_C">
+                <div class="Letter_c_Head"></div>
+                <div class="Letter_c_Body"></div>
+                <div class="Letter_c_Bottum"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

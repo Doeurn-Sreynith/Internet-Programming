@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex6</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .wrapper{
+            width: 100%;
+            height: 100vh;
+            background-color: #d3d3d3;
+        }
+        .small{
+            display: none;
+        }
+        .content{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .content >span{
+            padding: .7rem ;
+        }
+        .small{
+            background-color: #ff6347;
+            font-size: 1.2rem;
+        }
+        .big{
+            background-color: #9acd32;
+            font-size: 2rem;
+        }
+        @media only screen and (max-width:350px) {
+            .small{
+                display: block;
+            }
+            .big{
+                display: none;
+            }
+        }
+    </style>
+    <div class="wrapper">
+        <div class="content">
+            <span class="small">I am small😥</span>
+            <span class="big">I am Big😱</span>
+        </div>
+    </div>
+</body>
+</html>

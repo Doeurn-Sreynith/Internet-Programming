@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        td{
+            background-color: var(--bgcolor);
+        }
+        table{
+            border-collapse: collapse;
+            border: 3px solid black;
+        }
+        .center{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        table{
+            width: 60%;
+            aspect-ratio: 1.4/1;
+        }
+    </style>
+    <table class="center"  >
+        <tr>
+            <td  style="--bgcolor:#db8181;">&nbsp;</td>
+            <td style="--bgcolor:#c6c6c6;" colspan="3">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="--bgcolor:#84cb79;">&nbsp;</td>
+            <td style="--bgcolor:#799acb;" rowspan="2">&nbsp;</td>
+            <td style="--bgcolor:#cb79af" rowspan="2">&nbsp;</td>
+            <td style="--bgcolor:#f87a7a;" rowspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="--bgcolor:#976fd8;" >&nbsp;</td>
+            <!-- <td>Col 10</td> -->
+            <!-- <td>Col 11</td> -->
+            <!-- <td>Col 12</td> -->
+        </tr>
+    </table>
+</body>
+</html>

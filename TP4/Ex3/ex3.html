@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex3</title>
+</head>
+<style>
+    #Container{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #f1f5f8;
+        border: 8px solid black;
+    }
+    .counter{
+    
+        font-size: 50px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        /* margin-bottom: -80px; */
+
+    }
+    #number{
+        font-size: 70px;
+        color: #008000;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    button:hover{
+        background-color: black;
+        color: white;
+    }
+    #button{
+        margin: 10px 30px;
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        /* margin-top: -40px; */
+    }
+    .reset{
+        color: red;
+    }
+    button{
+        border: 2px solid black;
+        border-radius: 3px;
+        font-size: 15px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+</style>
+<body>
+    <div id="Container">
+        <div class="counter">
+            <h3>Counter</h3>
+        </div>
+        <div id="number">
+            <div class="result">0</div>
+        </div>
+        <div id="button">
+            <button class="counter-decrese">DECREASE</button>
+            <button class="reset">RESET</button>
+            <button class="counter-increase">INCREASE</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
