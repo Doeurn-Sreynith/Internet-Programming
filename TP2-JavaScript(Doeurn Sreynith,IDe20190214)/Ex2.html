@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button running</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #1f1f1f;
+        }
+        .moveAble{
+            padding: .5rem .7rem;
+            position: absolute;
+            left: 50%;
+            top:50%;
+            transform: translate(-50%,-50%);
+            cursor: pointer;
+            /* transition: 1000ms; */
+        }
+    </style>
+    <button class="moveAble ">Click Me🤣</button>
+    <script src="./tween.js/dist/tween.umd.js"></script>
+    <script>
+        const button=document.querySelector('.moveAble');
+        
+        function animate(time) {
+            requestAnimationFrame(animate);
+            TWEEN.update(time);
+        }
+        requestAnimationFrame(animate);
+        
+        const MoveAnime=(startX,startY,endX,endY)=>{
+            let coords={x:startX,y:startY}
+            const tween =new TWEEN.Tween(coords)
+            .to({x:endX,y:endY},1000)
+            .easing(TWEEN.Easing.Quadratic.Out)
+	        .onUpdate(()=>{
+                // console.log(coords.x,coords.y)
+                button.style.left=`${coords.x}px`;
+                button.style.top=`${coords.y}px`;
+            })
+            .start()
+        }
+
+
+        button.addEventListener('click',()=>{
+            const newX=Math.random()*document.documentElement.offsetWidth;
+            const newY=Math.random()*document.documentElement.offsetHeight;
+            MoveAnime(button.offsetLeft,button.offsetTop,newX,newY)
+        })
+    </script>
+</body>
+
+</html>

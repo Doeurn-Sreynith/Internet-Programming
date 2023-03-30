@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex3</title>
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+    body{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container{
+        display: flex;
+        width:  30%;
+        height: fit-content;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        /* text-align: center; */
+        /* position: relative; */
+        /* height: 100vh; */
+        border: 4px solid #808080;
+    }
+    canvas{
+        background-color: #d75252;
+        width: 100%;
+        height: var(--height);
+    }
+    .container .input-file{
+        background-color: #808080;
+        width:100%;
+        margin-top: -4px;
+        padding: 20px 0px;
+        color: white;
+    }
+</style>
+<body>
+    <div class="container">
+  
+            <canvas id="myCanvas" style="--height:297px;">
+            </canvas>
+
+        <div class="input-file">
+            <p>Canvas 👻<small class="Image"></small> : Insert me an image please!</p>
+            <input type="file" name="image" class="myImage" accept="image/*">
+        </div>
+    </div>
+    <script>
+        const input=document.querySelector('.myImage')
+        const canvas=document.querySelector("#myCanvas")
+        const context=canvas.getContext('2d')
+        input.addEventListener('change',(e)=>{
+            // alert("It changed")
+            const file=input.files[0];
+            var reader=new FileReader();
+            var img=new Image();
+            reader.onload=()=>{
+                img.src=reader.result;
+                img.onload=()=>{
+   
+                    const h=img.naturalHeight;
+                    const w=img.naturalWidth;
+                    const heightRate=h/w;
+                    const newH=heightRate*canvas.width;
+                    // canvas.height=newH;
+                    canvas.style.cssText=`--height:${newH}px;`
+                    context.drawImage(img,0,0,canvas.width,canvas.height)
+                }
+            }
+           reader.readAsDataURL(file)
+        })
+    </script>
+</body>
+</html>
